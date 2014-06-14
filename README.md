@@ -1,3 +1,5 @@
-mithril-bootstrap
+# mithril-bootstrap
 
-> Mithril components for Bootstrap
+> Mithril components using Bootstrap
+
+This is new feature

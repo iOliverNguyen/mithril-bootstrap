@@ -1,0 +1,51 @@
+{
+  "name": "mithril-bootstrap",
+  "version": "0.0.1",
+  "author": "Vu Nguyen <ng-vu@liti.ws>",
+  "description": "Mithril components using Bootstrap",
+  "homepage": "http://github.com/ng-vu/mithril-bootstrap",
+  "license": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/ng-vu/mithril-bootstrap/blob/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ng-vu/mithril-bootstrap.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "1.9.1",
+    "connect-livereload": "0.4.0",
+    "event-stream": "3.1.5",
+    "gulp": "^3.7.0",
+    "gulp-changed": "^0.3.0",
+    "gulp-clean": "^0.2.4",
+    "gulp-concat": "2.2.0",
+    "gulp-filter": "0.4.1",
+    "gulp-include-js": "git://github.com/ng-vu/gulp-include-js.git",
+    "gulp-inject": "0.4.1",
+    "gulp-insert": "0.3.0",
+    "gulp-less": "1.2.3",
+    "gulp-livereload": "^1.5.0",
+    "gulp-load-plugins": "^0.5.1",
+    "gulp-minify-css": "0.3.4",
+    "gulp-minify-html": "0.1.3",
+    "gulp-msx": "git://github.com/ng-vu/gulp-msx.git",
+    "gulp-newer": "0.3.0",
+    "gulp-plumber": "^0.6.3",
+    "gulp-rev": "^0.3.2",
+    "gulp-size": "^0.3.1",
+    "gulp-streamify": "0.0.5",
+    "gulp-sweetjs": "0.4.0",
+    "gulp-uglify": "0.3.0",
+    "gulp-util": "^2.2.17",
+    "gulp-watch": "^0.6.6",
+    "gulp-wrap-require": "git://github.com/ng-vu/gulp-wrap-require.git",
+    "run-sequence": "0.3.6",
+    "gulp-markdown": "^0.1.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-js-prettify": "^0.1.0"
+  }
+}
