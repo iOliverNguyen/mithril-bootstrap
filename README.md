@@ -14,7 +14,7 @@ cd mithril-boilerplate
 
 npm install
 bower install
-gulp compile
+gulp build
 
 http-server build/public
 ```
