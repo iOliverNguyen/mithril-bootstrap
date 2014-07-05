@@ -31,4 +31,4 @@ http-server build/public
 
 ## Introduction
 
-This project is based on [Angular UI Bootstrap](http://angular-ui.github.io/bootstrap/) and [mithril-boilerplate](https://github.com/ng-vu/mithril-boilerplate).
+This project is based on [Angular UI Bootstrap](http://angular-ui.github.io/bootstrap/), [Mithril](http://lhorie.github.io/mithril/), [Mithril MSX](https://github.com/insin/msx) and [mithril-boilerplate](https://github.com/ng-vu/mithril-boilerplate).

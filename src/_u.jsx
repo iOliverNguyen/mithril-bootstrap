@@ -11,10 +11,15 @@ u.eachFunc = function() {
   };
 };
 
-u.init = function($module) {
-  var ctrl = {};
-  var obj = Object.create(ctrl);
-  $module.controller.apply(ctrl, slice.call(arguments, 1));
+u.init = function($module, initObj) {
+
+  // NOTE: should we use inheritance or directly modify controller instance
+
+  var ctrl = initObj || {};
+  var obj = ctrl;
+  // var obj = Object.create(ctrl);
+
+  $module.controller.apply(ctrl, slice.call(arguments, 2));
   obj.$module = $module;
   obj.$view = $module.view.bind({}, ctrl);
   return obj;
@@ -23,14 +28,15 @@ u.init = function($module) {
 u.mute = function(cb) {
   return function(e) {
     e.preventDefault();
-    if (cb) return cb();
+    if (cb) return cb(e);
   };
 };
 
 u.silence = u.mute;
 
 u.exec = function(expr) {
-  if (typeof expr === 'function') return expr();
+  var args = slice.call(arguments, 1);
+  if (typeof expr === 'function') return expr.apply(this, args);
   return expr;
 };
 
@@ -42,46 +48,11 @@ u.save = function(expr, value) {
 u.prop = function(store) {
   if (typeof store === 'function') return store;
   var p = function() {
-    if (arguments.length) {
-      var newValue = arguments[0];
-      var oldValue = store;
-      store = arguments[0];
-      if (fnSet) fnSet(newValue, oldValue);
-      if (fnChange && newValue !== oldValue) fnChange(newValue, oldValue);
-    }
+    if (arguments.length) store = arguments[0];
     return store;
   };
-  var fnChange, fnSet;
-  p.onchange = function(fn) { fnChange = fn; }; // bug
-  p.onset = function(fn) { fnSet = fn; };
   p.toJSON = function() { return store; };
   return p;
-};
-
-function wrapWatch(prop) {
-  var fnChanges = [];
-
-  prop = Object.create(prop);
-  prop = function() {
-    if (arguments.length) {
-      var newValue = arguments[0];
-      var oldValue = store;
-      store = arguments[0];
-      // if (fnSet) fnSet(newValue, oldValue);
-      if (fnChanges && newValue !== oldValue) fnChange(newValue, oldValue);
-    }
-    return store;
-  };
-  prop.$onchange = function(fn) {
-    fnChanges.push(fn);
-  };
-  return prop;
-}
-
-u.watch = function(prop, fn) {
-  if (typeof prop.$onchange === 'undefined') prop = wrapWatch(prop);
-  prop.$onchange(fn);
-  return prop;
 };
 
 u.bind = function(fn, context) {
@@ -90,6 +61,10 @@ u.bind = function(fn, context) {
     var a = slice.call(args, 2).concat(slice.call(arguments, 0));
     return fn.apply(context, a);
   };
+};
+
+u.truth = function(value, valueTrue, valueFalse) {
+  return value === valueTrue? true: value === valueFalse? false: !!value;
 };
 
 function min(a, b) {

@@ -1,5 +1,9 @@
 Pagination is a Mithril component that takes care of paging.
 
+## Usage
+
+`m.ui.pagination(settings)`
+
 ### Settings
 
 * `currentPage` *(default 0)*: Current page number. First page is 0.

@@ -40,7 +40,6 @@ var docFiles = {
 var vendorFiles = {
   assets: [
     'vendor/bootstrap/fonts/*.*',
-    'vendor/bootstrap/dist/css/bootstrap.css'
   ],
   js: [
     'vendor/mithril/mithril.js',
@@ -80,7 +79,7 @@ function revName(filename) {
 gulp.task('copyDocsSources', function(cb) {
   gulp.src(docFiles.jsx, {base: 'src'})
     .pipe(plugins.changed(configs.buildSrcDemo))
-    .pipe(gulp.dest(configs.buildSrcDemo))
+    .pipe(gulp.dest(configs.buildTmpSrc))
     .on('end', cb || function(){})
     .on('error', log);
 });
@@ -131,6 +130,7 @@ gulp.task('buildAppScriptsInclude', function(cb) {
     .pipe(plugins.plumber())
     // .pipe(plugins.changed(configs.buildSrcDemo))
     .pipe(plugins.includeJs({ext:'js', cache:true, showFiles:'Building'}))
+    .pipe(plugins.includeJs({exactName: true, cache:'jsx', keyword: 'CONTENT', recursive: false, transform: function(s) { return JSON.stringify(s); }}))
     .pipe(plugins.jsPrettify({indent_size:2,max_preserve_newlines:2}))
     .pipe(plugins.wrapRequire())
     // .pipe(plugins.size({showFiles: true}))
@@ -218,6 +218,7 @@ function injectHtml(tag, path, glob) {
     gulp.src(glob, {read:false}), {
       starttag: '<!-- ' + tag + '.{{ext}} -->',
       endtag: '<!-- end -->',
+      addRootSlash: false,
       ignorePath: path,
       sort: function(a,b) {return a < b? -1 : a > b? 1 : 0;}
     }
@@ -319,10 +320,10 @@ gulp.task('clean', function(cb) {
 
 gulp.task('build', function(cb) {
   runSequence('clean',[
+      'copyDocsSources',
       'buildAppScripts', 'buildVendorScripts',
       'buildAppAssets', 'buildVendorAssets',
-      'buildRootFiles', 'buildBootstrap',
-      'copyDocsSources'
+      'buildRootFiles', 'buildBootstrap'
     ],
     'buildIndexHtml',
     cb);
@@ -368,7 +369,7 @@ gulp.task('watch', function(cb) {
   gulp.watch([appFiles.jsx, docFiles.jsx, docFiles.md], function(e) {
     logChanged(e);
 
-    runSequence('buildAppScripts', 'copyDocsSources', 'buildIndexHtml', reload(indexHtmlPath));
+    runSequence('copyDocsSources', 'buildAppScripts', 'buildIndexHtml', reload(indexHtmlPath));
   });
   gulp.watch(mbFiles.jsx, function(e) {
     logChanged(e);

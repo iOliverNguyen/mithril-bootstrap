@@ -1,1 +1,1 @@
-Document
+Carousel is a Mithril component

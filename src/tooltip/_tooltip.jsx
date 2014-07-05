@@ -5,7 +5,7 @@ ui.tooltip = function() {
   }
 
   function view(ctrl) {
-    return <div>TODO</div>;
+    return INCLUDE('tooltip/tooltip.tpl');
   }
 
   return {

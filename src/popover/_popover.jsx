@@ -5,7 +5,7 @@ ui.popover = function() {
   }
 
   function view(ctrl) {
-    return <div>TODO</div>;
+    return INCLUDE('popover/popover.tpl');
   }
 
   return {

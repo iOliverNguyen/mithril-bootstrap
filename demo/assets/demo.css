@@ -88,3 +88,7 @@ section .row > .doc {
 section .doc ul {
   padding-left: 20px;
 }
+
+a, label {
+  cursor: pointer !important;
+}

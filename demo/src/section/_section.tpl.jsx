@@ -1,7 +1,7 @@
 <section id={config.name}>
   <h1>
     {config.title}&nbsp;
-    <small>({config.id})</small>
+    <small>({config.small})</small>
   </h1>
   <div class="row">
     <div class="col-md-6 demo">
@@ -16,7 +16,7 @@
       {ctrl.tabs1.$view()}
     </div>
     <div class="col-md-6 code">
-      {ctrl.tabs2.$view()}
+      {ctrl.tabs2? ctrl.tabs2.$view(): ''}
     </div>
   </div>
 </section>

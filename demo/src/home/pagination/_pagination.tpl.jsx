@@ -1,3 +1,0 @@
-<div>
-  {dataSet}
-</div>

@@ -28,5 +28,11 @@ tab2.view = function(ctrl) {
 // END
 
 demo.doc =  INCLUDE('./readme');
-demo.extraFiles = ['_tab1.jsx', '_tab2.jsx'];
+demo.small = 'm.ui.tabs';
+demo.files = {
+  'demo.jsx': CONTENT('./demo.jsx'),
+  '_template.jsx': CONTENT('./_template.jsx'),
+  '_tab1.jsx': CONTENT('./_tab1.jsx'),
+  '_tab2.jsx': CONTENT('./_tab2.jsx')
+};
 module.exports = demo;

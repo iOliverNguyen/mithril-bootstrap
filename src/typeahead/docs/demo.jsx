@@ -3,7 +3,7 @@ var demo = {};
 demo.controller = function() {
   this.countries = m.request({
     method: 'GET',
-    url: '/countries.json'
+    url: 'countries.json'
   });
   this.selectedItem = m.prop(undefined);
   this.typeahead = m.u.init(m.ui.typeahead({
@@ -27,4 +27,9 @@ demo.view = function(ctrl) {
 // END
 
 demo.doc =  INCLUDE('./readme');
+demo.small = 'm.ui.typeahead';
+demo.files = {
+  'demo.jsx': CONTENT('./demo.jsx'),
+  '_template.jsx': CONTENT('./_template.jsx'),
+};
 module.exports = demo;

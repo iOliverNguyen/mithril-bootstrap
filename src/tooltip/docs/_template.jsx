@@ -1,1 +1,1 @@
-<div>Demo</div>
+<div>{ctrl.tooltip.$view()}</div>

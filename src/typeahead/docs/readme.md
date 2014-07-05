@@ -1,5 +1,9 @@
 Typeahead is a Mithril version of [Bootstrap v2's typeahead plugin](http://getbootstrap.com/2.3.2/javascript.html#typeahead).
 
+## Usage
+
+`m.ui.typeahead(settings)`
+
 ### Settings
 
 * `list` *(required)*: Source array.

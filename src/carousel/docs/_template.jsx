@@ -1,1 +1,3 @@
-<div>Demo</div>
+<div>
+  {ctrl.carousel.$view()}
+</div>

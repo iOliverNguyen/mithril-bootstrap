@@ -1,3 +1,24 @@
+var typeaheadList = [];
+
+document.addEventListener('click',function(event) {
+  for (var i in typeaheadList)  {
+    typeaheadList[i].xlist = u.prop([]);
+    typeaheadList[i].highlight = m.prop(0);
+  }
+  m.redraw();
+});
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 27 ) {
+    for (var i in typeaheadList) {
+      typeaheadList[i].xlist = u.prop([]);
+      typeaheadList[i].highlight = m.prop(0);
+    }
+    m.redraw();
+  }
+});
+
 ui.typeahead = function(options) {
   var eventKeys = {
     down: 40,
@@ -15,6 +36,7 @@ ui.typeahead = function(options) {
 
   function controller() {
     var ctrl = this;
+    typeaheadList.push(this);
     this.list = u.prop(options.list || []);
     this.xlist = u.prop([]);
     this.selected = m.prop(undefined);
@@ -69,6 +91,13 @@ ui.typeahead = function(options) {
       var s = ctrl.selected();
       if (isEmpty(s)) return;
       return ctrl.list()[s];
+    };
+
+    this.onunload = function() {
+      var index = typeaheadList.indexOf(this);
+      if (index > -1) {
+        dropdownList.splice(index, 1)
+      }
     };
   }
 

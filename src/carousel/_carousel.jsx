@@ -1,11 +1,11 @@
-ui.carousel = function() {
+ui.carousel = function(options) {
 
   function controller() {
 
   }
 
   function view(ctrl) {
-    return <div>TODO</div>;
+    return <div>12345</div>;
   }
 
   return {

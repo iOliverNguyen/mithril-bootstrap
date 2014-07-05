@@ -1,0 +1,90 @@
+code {
+  color: #333;
+  background: #f8f8f8;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  margin: 0 2px;
+  padding: 0 5px;
+}
+
+pre code {
+  border: none;
+  background: none;
+}
+
+.\# {
+  width: 50px;
+}
+
+.navbar {
+  border-bottom: solid 1px #BBB;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.175);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.175);
+}
+
+.navbar-space {
+  height: 50px;
+}
+
+.navbar .active a, .navbar .active a:hover {
+  background: #DDD !important;
+}
+
+.page footer {
+  color: white;
+  background: #333;
+  padding: 20px 0 10px 0;
+  margin-top: 50px;
+}
+
+.page footer a {
+  color: white;
+  text-decoration: underline;
+}
+
+.about {
+  max-width: 800px;
+}
+
+section {
+  margin: 50px 0;
+  padding-top: 40px;
+}
+
+section h1 {
+  margin: 30px 0;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #DDD;
+}
+
+section .nav-tabs li.active.code a {
+  background: #f8f8f8;
+}
+
+section .code pre {
+  background: #f8f8f8;
+  border-top: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+section .tab-pane.code pre {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+section .tab-pane.demo {
+  padding-top: 30px;
+}
+
+section .row > .demo {
+  margin-bottom: 50px;
+}
+
+section .row > .doc {
+  margin-bottom: 20px;
+}
+
+section .doc ul {
+  padding-left: 20px;
+}
