@@ -9,8 +9,8 @@
 ```sh
 npm install -g bower gulp http-server
 
-git clone https://github.com/ng-vu/mithril-boilerplate.git
-cd mithril-boilerplate
+git clone https://github.com/ng-vu/mithril-bootstrap.git
+cd mithril-bootstrap
 
 npm install
 bower install
